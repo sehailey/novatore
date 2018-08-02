@@ -4,5 +4,9 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
+export {default as Footer} from './Footer'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
+export {default as AllPosts} from './posts/AllPosts'
+export {default as PostList} from './posts/PostList'
+export {default as Post} from './posts/Post'

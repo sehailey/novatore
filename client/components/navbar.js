@@ -23,6 +23,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
+        <NavLink className="nav-link" to="/posts">
+          Posts <span className="sr-only">(current)</span>
+        </NavLink>
         {isLoggedIn ? (
           <ul className="navbar-nav">
             <li className="nav-item active">
