@@ -1,11 +1,28 @@
 const User = require('./user')
+const Post = require('./post')
+const Comment = require('./comment')
+const Task = require('./task')
 
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
+User.hasMany(Post)
+Post.belongsTo(User)
+
+Post.hasMany(Comment)
+Comment.belongsTo(Post)
+
+Comment.belongsTo(User)
+User.hasMany(Comment)
+
+//Task.belongsTo(Task, {as: 'parent'})
+
+/*
+Sketching out fantasy ideas:
+
+// Users can share tasks without teams
+Task.belongsToMany(User, {through: 'TaskUser'})
+
+// Tasks can belong to teams but they don't have to
+User.belongsToMany(Team)
+
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -14,5 +31,8 @@ const User = require('./user')
  * instead of: const User = require('../db/models/user')
  */
 module.exports = {
-  User
+  User,
+  Post,
+  Comment,
+  Task
 }

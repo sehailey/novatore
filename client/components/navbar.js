@@ -6,7 +6,8 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="hero-image" />
+    <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
       <NavLink className="navbar-brand" to="/">
         Novatore
       </NavLink>

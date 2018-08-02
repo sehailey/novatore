@@ -1,19 +1,18 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Task = db.define('task', {
+const Comment = db.define('comment', {
   title: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
 
-  notes: {
+  content: {
     type: Sequelize.TEXT,
     allowNull: false
   }
 })
 
-module.exports = Task
+module.exports = Comment
 
 /**
  * instanceMethods
