@@ -1,7 +1,9 @@
 import React from 'react'
+import Comments from './Comments'
 
 const Post = props => {
-  const {user, post} = props
+  const {user, post, comments} = props
+  if (!user || !post || !comments) return <div>Loading Post...</div>
   return (
     <div>
       {/* <h2>{user.email}</h2> */}
@@ -31,6 +33,9 @@ const Post = props => {
           <hr />
         </div>
       </div>
+      <Comments
+        comments={comments.filter(comment => comment.postId === post.id)}
+      />
       {/* <!-- /.row --> */}
     </div>
   )

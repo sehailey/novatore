@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import PostList from './PostList'
-import {getAllPosts} from '../../store'
+import {getAllPosts, getAllComments} from '../../store'
 
 /**
  * COMPONENT
@@ -11,15 +11,16 @@ import {getAllPosts} from '../../store'
 class Posts extends Component {
   componentDidMount() {
     this.props.fetchPosts()
+    this.props.fetchComments()
   }
   render() {
-    const {user, posts} = this.props
+    const {user, posts, comments} = this.props
 
     return (
       this.props.posts &&
       this.props.posts.length && (
         <div className="container">
-          <PostList user={user} posts={posts} />
+          <PostList user={user} posts={posts} comments={comments} />
         </div>
       )
     )
@@ -29,7 +30,8 @@ class Posts extends Component {
 const mapState = state => {
   return {
     posts: state.posts,
-    user: state.user
+    user: state.user,
+    comments: state.comments
   }
 }
 
@@ -37,6 +39,9 @@ const mapDispatch = dispatch => {
   return {
     fetchPosts: () => {
       dispatch(getAllPosts())
+    },
+    fetchComments: () => {
+      dispatch(getAllComments())
     }
   }
 }

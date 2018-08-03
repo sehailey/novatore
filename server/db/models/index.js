@@ -12,6 +12,9 @@ Comment.belongsTo(Post)
 Comment.belongsTo(User)
 User.hasMany(Comment)
 
+Comment.belongsTo(Comment, {as: 'parent'})
+Comment.hasMany(Comment)
+
 //Task.belongsTo(Task, {as: 'parent'})
 
 /*
