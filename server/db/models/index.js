@@ -1,4 +1,5 @@
 const User = require('./user')
+const Blog = require('./blog')
 const Post = require('./post')
 const Comment = require('./comment')
 const Task = require('./task')
@@ -12,8 +13,13 @@ Comment.belongsTo(Post)
 Comment.belongsTo(User)
 User.hasMany(Comment)
 
-Comment.belongsTo(Comment, {as: 'parent'})
-Comment.hasMany(Comment)
+Comment.hasMany(Comment, {as: 'replies'})
+
+User.belongsToMany(Blog, {as: 'blogger', through: 'BlogOwner'})
+Blog.belongsToMany(User, {as: 'owner', through: 'BlogOwner'})
+
+Blog.hasMany(Post)
+Post.belongsTo(Blog)
 
 //Task.belongsTo(Task, {as: 'parent'})
 
@@ -35,6 +41,7 @@ User.belongsToMany(Team)
  */
 module.exports = {
   User,
+  Blog,
   Post,
   Comment,
   Task

@@ -33,11 +33,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                 Home <span className="sr-only">(current)</span>
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick={handleClick}>
-                Logout
-              </NavLink>
-            </li>
           </ul>
         ) : (
           <ul className="navbar-nav">
@@ -52,6 +47,11 @@ const Navbar = ({handleClick, isLoggedIn}) => (
               </NavLink>
             </li>
           </ul>
+        )}
+        {isLoggedIn ? (
+          <ul className="navbar-nav navbar-right float-right">hi</ul>
+        ) : (
+          <ul className="nav-item navbar-right">bye!</ul>
         )}
       </div>
     </nav>

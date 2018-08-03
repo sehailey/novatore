@@ -9,7 +9,7 @@ const Post = props => {
       {/* <h2>{user.email}</h2> */}
       <div className="row">
         {/* <!-- Post Content Column --> */}
-        <div className="col-lg-8">
+        <div className="col-lg-12">
           {/* <!-- Title --> */}
           <h1 className="mt-4">{post.title}</h1>
           {/* <!-- Author --> */}

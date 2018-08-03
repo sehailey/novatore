@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Post, Comment} = require('../server/db/models')
+const {User, Post, Comment, Blog} = require('../server/db/models')
 
 async function seedUsers() {
   const users = await Promise.all([
@@ -20,82 +20,114 @@ async function seedUsers() {
       username: 'faefolk',
       password: '123'
     }),
-    User.create({email: 'rfa@email.com', username: 'rfa_afk', password: '123'})
+    User.create({
+      email: 'rfa@email.com',
+      username: 'rfa_afk',
+      password: '123'
+    }),
+    User.create({
+      email: 'aragorn@email.com',
+      username: 'aragorn!',
+      password: '123'
+    })
   ])
 
   console.log(`seeded ${users.length} users`)
 }
 
-const posts = [
-  {
-    title: 'Iconoclasts, forward!',
-    content:
-      'All societies tremble when the scornful aristocracy of Vagabonds, Unique ones, Unapproachable ones, rulers over the ideal, and Conquerors of Nothing advance without inhibitions. So, come on, Iconoclasts, forward!'
-  },
-  {
-    title: 'on prison abolition',
-    content:
-      'Mine is an enthusiastic and dionysian pessimism, like a flame that sets my vital exuberance ablaze, that mocks at any theoretical, scientific or moral prison.'
-  },
-  {
-    title: 'Rebellion!',
-    content:
-      'We absolutely feel we are beyond all isms and theories. We will suppress the works of all nitwits and all scribblers who, by affiliating with the schools of the avant-garde, try to impose themselves on more original minds. We will absolutely refuse all works of purely technical virtuosity unless they serve to express an aesthetic rebellion.'
-  }
-]
+async function seedPosts() {
+  const posts = await Promise.all([
+    Post.create({
+      title: 'Iconoclasts, forward!',
+      content:
+        'All societies tremble when the scornful aristocracy of Vagabonds, Unique ones, Unapproachable ones, rulers over the ideal, and Conquerors of Nothing advance without inhibitions. So, come on, Iconoclasts, forward!'
+    }),
+    Post.create({
+      title: 'on prison abolition',
+      content:
+        'Mine is an enthusiastic and dionysian pessimism, like a flame that sets my vital exuberance ablaze, that mocks at any theoretical, scientific or moral prison.'
+    }),
+    Post.create({
+      title: 'Rebellion!',
+      content:
+        'We absolutely feel we are beyond all isms and theories. We will suppress the works of all nitwits and all scribblers who, by affiliating with the schools of the avant-garde, try to impose themselves on more original minds. We will absolutely refuse all works of purely technical virtuosity unless they serve to express an aesthetic rebellion.'
+    })
+  ])
 
-const seedPosts = async () => {
-  for (let i = 0; i < posts.length; i++) {
-    const newPost = await Post.create(posts[i])
-    await newPost.setUser(1)
-
-    const comments = await Promise.all([
-      Comment.create({
-        title: 'nice post!',
-        content: 'seriously, have you ever considered making your own blog?',
-        userId: 3
-      }),
-      Comment.create({
-        title: '+1!',
-        content: 'WOW',
-        userId: 4
-      })
-      //   Comment.create({
-      //     title: 'I do not really agree...!',
-      //     content: 'um...???',
-      //     userId: 2,
-      //     parentId: 1
-      //   }),
-
-      //
-    ])
-    await newPost.addComments(comments)
-  }
-  console.log('seeded posts!')
+  console.log(`seeded ${posts.length} posts`)
 }
 
-const seedComments = async () => {
-  //const post = await Post.findById(2)
-  const comment1 = await Comment.create({
-    title: 'stupid!',
-    content: "I can't believe anyone would say this...",
-    userId: 1,
-    parentId: 1
-  })
+async function seedComments() {
+  const comments = await Promise.all([
+    //comment1
+    Comment.create({
+      title: 'nice post!',
+      content: 'seriously, have you ever considered making your own blog?',
+      userId: 2
+    }),
+    //comment2
+    Comment.create({
+      title: '+1!',
+      content: 'WOW',
+      userId: 4
+    }),
+    //comment3
+    Comment.create({
+      title: 'This is so stupid',
+      content: 'This is literally the stupidest thing I have ever heard.',
+      userId: 3
+    }),
+    //comment4
+    Comment.create({
+      title: 'I do not really agree...!',
+      content: 'um...???',
+      userId: 2
+    }),
+    //comment5
+    Comment.create({
+      title: 'what??',
+      content: 'Why do you have to be so mean?',
+      userId: 4
+    }),
+    //comment6
+    Comment.create({
+      title: 'boring.',
+      content: '*curmudgeonly things*',
+      userId: 5
+    })
+  ])
+  console.log(`seeded ${comments.length} comments`)
+}
 
-  const comment2 = await Comment.create({
-    title: 'I do not really agree...!',
-    content: 'um...???',
-    userId: 2,
-    parentId: 1
-  })
+async function seedBlogs() {
+  const blog = await Blog.create({title: 'The Creative Nothing'})
+  await blog.addOwner(1)
 
-  await comment1.addComment(comment2)
-  await comment1.setUser(3)
-  await comment2.setUser(2)
-  await comment2.setParent(1)
-  await comment1.setPost(1)
-  await comment2.setPost(1)
+  const posts = await Post.findAll()
+  const comments = await Comment.findAll()
+
+  const p1 = posts[0]
+
+  const c1 = comments[0]
+  const c2 = comments[1]
+  const c3 = comments[2]
+  const c4 = comments[3]
+  const c5 = comments[4]
+  const c6 = comments[5]
+
+  //await c1.addUser(2)
+  //await c2.addUser()
+  await c1.addReplies([c2, c3])
+  await c3.addReplies([c4, c5])
+  await c4.addReplies(c6)
+
+  await p1.addComments([c1, c2])
+  posts.forEach(async post => {
+    await post.setBlog(blog)
+    await post.setUser(1)
+  })
+  //
+  await blog.addPosts(posts)
 }
 
 // We've separated the `seed` function from the `runSeed` function.
@@ -109,6 +141,7 @@ async function runSeed() {
     await seedUsers()
     await seedPosts()
     await seedComments()
+    await seedBlogs()
     console.log(`seeded successfully`)
   } catch (err) {
     console.error(err)

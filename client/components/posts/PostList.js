@@ -3,7 +3,8 @@ import Post from './Post'
 const PostList = props => {
   const {user, posts, comments} = props
   return (
-    <div className="container">
+    <div className="col-lg-12">
+      <h1 className="my-4">{user.username}</h1>
       {posts.map(post => {
         return (
           <Post
