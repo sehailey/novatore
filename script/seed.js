@@ -5,10 +5,22 @@ const {User, Post, Comment} = require('../server/db/models')
 
 async function seedUsers() {
   const users = await Promise.all([
-    User.create({email: 'novatore@email.com', password: '123'}),
-    User.create({email: 'sarah@email.com', password: '123'}),
-    User.create({email: 'faefolk@email.com', password: '123'}),
-    User.create({email: 'rfa@email.com', password: '123'})
+    User.create({
+      email: 'novatore@email.com',
+      username: 'Novatore!',
+      password: '123'
+    }),
+    User.create({
+      email: 'sarah@email.com',
+      username: 'notnull',
+      password: '123'
+    }),
+    User.create({
+      email: 'faefolk@email.com',
+      username: 'faefolk',
+      password: '123'
+    }),
+    User.create({email: 'rfa@email.com', username: 'rfa_afk', password: '123'})
   ])
 
   console.log(`seeded ${users.length} users`)

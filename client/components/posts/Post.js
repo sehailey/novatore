@@ -1,5 +1,5 @@
 import React from 'react'
-import Comments from './Comments'
+import CommentsList from './CommentsList'
 
 const Post = props => {
   const {user, post, comments} = props
@@ -15,7 +15,7 @@ const Post = props => {
           {/* <!-- Author --> */}
           <p className="lead">
             by
-            <a href="#"> {user.email}</a>
+            <a href="#"> {user.username}</a>
           </p>
           <hr />
           {/* <!-- Date/Time --> */}
@@ -33,7 +33,8 @@ const Post = props => {
           <hr />
         </div>
       </div>
-      <Comments
+      <CommentsList
+        user={user}
         comments={comments.filter(comment => comment.postId === post.id)}
       />
       {/* <!-- /.row --> */}
