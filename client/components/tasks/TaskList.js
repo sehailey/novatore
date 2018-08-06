@@ -26,7 +26,7 @@ const TaskList = props => {
 
 const mapState = state => {
   return {
-    tasks: state.tasks,
+    //tasks: state.tasks,
     user: state.user,
     //comments: state.comments,
     bloggers: state.bloggers,

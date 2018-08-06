@@ -9,6 +9,7 @@ const Task = props => {
         type="checkbox"
         value={task.name}
         id={task.id}
+        onChange={() => console.log(task.id)}
       />
       <label className="form-check-label" htmlFor={task.id}>
         {task.name}
