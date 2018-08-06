@@ -1,7 +1,9 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {toggleTask} from '../../store'
 
 const Task = props => {
-  const task = props.task
+  const {task, toggleTask} = props
   return (
     <div>
       <input
@@ -9,7 +11,7 @@ const Task = props => {
         type="checkbox"
         value={task.name}
         id={task.id}
-        onChange={() => console.log(task.id)}
+        onChange={() => toggleTask(task.id)}
       />
       <label className="form-check-label" htmlFor={task.id}>
         {task.name}
@@ -18,4 +20,11 @@ const Task = props => {
   )
 }
 
-export default Task
+const mapDispatch = dispatch => ({
+  toggleTask: id => {
+    console.log(id)
+    dispatch(toggleTask(id))
+  },
+})
+
+export default connect(null, mapDispatch)(Task)

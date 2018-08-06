@@ -15,6 +15,8 @@ class AllTasks extends Component {
   }
   render() {
     const {user, tasks} = this.props
+    const completeTasks = tasks.filter(task => !!task.complete)
+    const incompleteTasks = tasks.filter(task => !task.complete)
 
     return (
       <div>
@@ -22,14 +24,8 @@ class AllTasks extends Component {
           this.props.tasks &&
           this.props.tasks.length && (
             <div className="container">
-              <TaskList
-                user={user}
-                tasks={tasks.filter(task => !task.complete)}
-              />
-              <CompletedTaskList
-                user={user}
-                tasks={tasks.filter(task => !!task.complete)}
-              />
+              <TaskList user={user} tasks={incompleteTasks} />
+              <CompletedTaskList user={user} tasks={completeTasks} />
             </div>
           )}
       </div>

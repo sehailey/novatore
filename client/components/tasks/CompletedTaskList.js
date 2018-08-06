@@ -4,6 +4,8 @@ import Task from './Task'
 import {createTask} from '../../store'
 const CompletedTaskList = props => {
   const {user, tasks, comments, bloggers, handleClick, handleSubmit} = props
+  const complete = true
+
   return (
     <div className="card rounded bg-light mt-4">
       <div className="card-header">
@@ -11,19 +13,11 @@ const CompletedTaskList = props => {
       </div>
       <div className="card-body">
         <div className="form-check">
-          {//Check if message failed
-          tasks.length === 0 ? (
+          {tasks.length === 0 ? (
             <div> No Completed Tasks. :( </div>
           ) : (
             <div> {tasks.map(task => <Task key={task.id} task={task} />)} </div>
           )}
-
-          <div className="mt-4">
-            <form onSubmit={handleSubmit}>
-              <input name="name" type="text" placeholder="enter task" />
-              <button type="submit">+</button>
-            </form>
-          </div>
         </div>
       </div>
     </div>
