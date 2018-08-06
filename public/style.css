@@ -24,10 +24,10 @@ form div {
 /* The hero image */
 .hero-image {
   /* The image used */
-  background-image: url('./purpose.jpg');
+  background-image: url('purpose.jpg');
 
   /* Set a specific height */
-  height: 50%;
+  height: 100%;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;

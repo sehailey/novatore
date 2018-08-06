@@ -1,16 +1,29 @@
 const User = require('./user')
+const Blog = require('./blog')
 const Post = require('./post')
 const Comment = require('./comment')
 const Task = require('./task')
 
-User.hasMany(Post)
-Post.belongsTo(User)
+User.hasMany(Post) //puts userId on Post, creates instance method 'user.getPosts()'
+Post.belongsTo(User) // creates instance method 'post.getUser()''
 
-Post.hasMany(Comment)
+Post.hasMany(Comment) //puts postId on Comment
 Comment.belongsTo(Post)
 
-Comment.belongsTo(User)
-User.hasMany(Comment)
+User.hasMany(Comment) //puts userId on Comment
+Comment.belongsTo(User) //puts userId on Comment
+
+Comment.belongsTo(Comment, {as: 'parent'})
+Comment.hasMany(Comment, {as: {singular: 'reply', plural: 'replies'}})
+// comment.getComments
+// comment.setComment (I'm assuming this sets the parent?)
+// comment.addComment (I'm assuming this sets the child?)
+// comment.addComments
+User.belongsToMany(Blog, {through: 'BlogUser'})
+Blog.belongsToMany(User, {through: 'BlogUser'})
+
+Blog.hasMany(Post) //puts blogId on Post
+Post.belongsTo(Blog) //puts blogId on Post
 
 //Task.belongsTo(Task, {as: 'parent'})
 
@@ -32,7 +45,8 @@ User.belongsToMany(Team)
  */
 module.exports = {
   User,
+  Blog,
   Post,
   Comment,
-  Task
+  Task,
 }
