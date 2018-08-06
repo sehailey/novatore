@@ -1,28 +1,26 @@
 import React from 'react'
-
+import CommentsList from './CommentsList'
 const Comment = props => {
-  const {user, comment} = props
-
-  if (comment.length === 0)
-    return (
-      <div className="media mb-4">
-        <p>No comments.</p>
-      </div>
-    )
+  const {blogger, comment, replies} = props
   return (
-    <div className="media mb-4">
+    <li className="media mb-4">
       <img
         className="d-flex mr-3 rounded-circle"
-        src={'img/' + user.imageUrl}
+        src={'img/' + blogger.imageUrl}
         width="50px"
         alt=""
       />
+      {/* <div className="caption">
+            <p>{blogger.username}</p>
+          </div> */}
       <div className="media-body">
-        <h5 className="mt-0">{user.name}</h5>
-        <h3 className="mt-0">{comment.title}</h3>
+        <h5 className="mt-0">{comment.title}</h5>
         <p>{comment.content}</p>
+        <p>by {blogger.username}</p>
+        <p>reply</p>
       </div>
-    </div>
+      {/* <CommentsList comments={replies} /> */}
+    </li>
   )
 }
 

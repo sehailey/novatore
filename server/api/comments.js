@@ -11,6 +11,25 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const comment = await Comment.findById(req.params.id)
+    res.json(comment)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/:id/replies', async (req, res, next) => {
+  try {
+    const comment = await Comment.findById(req.params.id)
+    const replies = await comment.getReplies()
+    res.json(replies)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const comment = await Comment.create(req.body)

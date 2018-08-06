@@ -2,11 +2,10 @@ import React from 'react'
 import CommentsList from './CommentsList'
 
 const Post = props => {
-  const {user, post, comments} = props
-  if (!user || !post || !comments) return <div>Loading Post...</div>
+  const {blogger, post, comments} = props
+  if (!blogger || !post || !comments) return <div>Loading Post...</div>
   return (
     <div>
-      {/* <h2>{user.email}</h2> */}
       <div className="row">
         {/* <!-- Post Content Column --> */}
         <div className="col-lg-12">
@@ -15,18 +14,22 @@ const Post = props => {
           {/* <!-- Author --> */}
           <p className="lead">
             by
-            <a href="#"> {user.username}</a>
+            <a href="#"> {blogger.username}</a>
           </p>
           <hr />
           {/* <!-- Date/Time --> */}
           <p>Posted on January 1, 2018 at 12:00 PM</p>
           <hr />
           {/* <!-- Preview Image --> */}
-          <img
-            className="img-fluid rounded"
-            src="http://placehold.it/900x300"
-            alt=""
-          />
+          {post.imageUrl ? (
+            <img
+              className="img-fluid rounded"
+              src="http://placehold.it/900x300"
+              alt=""
+            />
+          ) : (
+            <div />
+          )}
           <hr />
           {/* <!-- Post Content --> */}
           <p>{post.content}</p>
@@ -34,7 +37,6 @@ const Post = props => {
         </div>
       </div>
       <CommentsList
-        user={user}
         comments={comments.filter(comment => comment.postId === post.id)}
       />
       {/* <!-- /.row --> */}

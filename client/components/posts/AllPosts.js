@@ -11,18 +11,11 @@ class Posts extends Component {
     this.props.fetchBloggers()
   }
   render() {
-    const {user, posts, comments, bloggers} = this.props
-
     return (
       this.props.posts &&
       this.props.posts.length && (
         <div className="container">
-          <PostList
-            user={user}
-            posts={posts}
-            comments={comments}
-            bloggers={bloggers}
-          />
+          <PostList />
         </div>
       )
     )
@@ -34,7 +27,7 @@ const mapState = state => {
     posts: state.posts,
     user: state.user,
     comments: state.comments,
-    bloggers: state.bloggers
+    bloggers: state.bloggers,
   }
 }
 
@@ -48,12 +41,12 @@ const mapDispatch = dispatch => {
     },
     fetchBloggers: () => {
       dispatch(getAllBloggers())
-    }
+    },
   }
 }
 
 export default connect(mapState, mapDispatch)(Posts)
 
 Posts.propTypes = {
-  posts: PropTypes.array
+  posts: PropTypes.array,
 }

@@ -4,22 +4,26 @@ const Post = require('./post')
 const Comment = require('./comment')
 const Task = require('./task')
 
-User.hasMany(Post)
-Post.belongsTo(User)
+User.hasMany(Post) //puts userId on Post, creates instance method 'user.getPosts()'
+Post.belongsTo(User) // creates instance method 'post.getUser()''
 
-Post.hasMany(Comment)
+Post.hasMany(Comment) //puts postId on Comment
 Comment.belongsTo(Post)
 
-Comment.belongsTo(User)
-User.hasMany(Comment)
+User.hasMany(Comment) //puts userId on Comment
+Comment.belongsTo(User) //puts userId on Comment
 
-Comment.hasMany(Comment, {as: 'replies'})
+Comment.belongsTo(Comment, {as: 'parent'})
+Comment.hasMany(Comment, {as: {singular: 'reply', plural: 'replies'}})
+// comment.getComments
+// comment.setComment (I'm assuming this sets the parent?)
+// comment.addComment (I'm assuming this sets the child?)
+// comment.addComments
+User.belongsToMany(Blog, {through: 'BlogUser'})
+Blog.belongsToMany(User, {through: 'BlogUser'})
 
-User.belongsToMany(Blog, {as: 'blogger', through: 'BlogOwner'})
-Blog.belongsToMany(User, {as: 'owner', through: 'BlogOwner'})
-
-Blog.hasMany(Post)
-Post.belongsTo(Blog)
+Blog.hasMany(Post) //puts blogId on Post
+Post.belongsTo(Blog) //puts blogId on Post
 
 //Task.belongsTo(Task, {as: 'parent'})
 
@@ -44,5 +48,5 @@ module.exports = {
   Blog,
   Post,
   Comment,
-  Task
+  Task,
 }

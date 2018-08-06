@@ -1,17 +1,20 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import Post from './Post'
 const PostList = props => {
-  const {user, posts, comments} = props
+  const {posts, comments, bloggers} = props
   return (
     <div className="col-lg-12">
-      <h1 className="my-4">{user.username}</h1>
+      <h1 className="my-4">The Creative Nothing</h1>
       {posts.map(post => {
         return (
           <Post
             key={post.id}
-            user={user}
+            blogger={bloggers.find(blogger => blogger.id === post.userId)}
             post={post}
-            comments={comments.filter(comment => comment.id === post.id)}
+            comments={comments.filter(
+              comment => comment.postId === post.id && comment.parentId === null
+            )}
           />
         )
       })}
@@ -19,4 +22,13 @@ const PostList = props => {
   )
 }
 
-export default PostList
+const mapState = state => {
+  return {
+    posts: state.posts,
+    //user: state.user,
+    comments: state.comments,
+    bloggers: state.bloggers
+  }
+}
+
+export default connect(mapState)(PostList)
