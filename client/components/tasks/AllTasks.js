@@ -16,7 +16,7 @@ class AllTasks extends Component {
     const {user, tasks} = this.props
 
     return (
-      <div className="col-sm bg-dark">hello!</div>
+      <div className="container">hello!</div>
       /*this.props.tasks &&
       this.props.tasks.length && (
         <div className="container">
