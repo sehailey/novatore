@@ -6,7 +6,7 @@ const PostList = props => {
   return (
     <div className="col-md-8">
       <div className="hero-image" />
-      <h1 className="my-4">The Creative Nothing</h1>
+      <img className="img-fluid" src="img/header.jpg" />
       {posts.map(post => {
         return (
           <Post
