@@ -3,7 +3,7 @@ import AllTasks from './tasks/AllTasks'
 
 const SideBar = () => {
   return (
-    <div className="col-sm bg-dark">
+    <div className="col-md-4 bg-dark">
       <AllTasks />
     </div>
   )

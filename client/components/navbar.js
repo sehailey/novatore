@@ -5,10 +5,9 @@ import {NavLink} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({username, handleClick, isLoggedIn}) => (
-  <div>
-    <div className="hero-image" />
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-      <NavLink className="navbar-brand" to="/">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+    <div className="container">
+      <NavLink className="navbar-brand js-scroll-trigger" to="/">
         Novatore
       </NavLink>
       <button
@@ -66,9 +65,8 @@ const Navbar = ({username, handleClick, isLoggedIn}) => (
           </li>
         </ul>
       )}
-    </nav>
-    <hr />
-  </div>
+    </div>
+  </nav>
 )
 
 /**

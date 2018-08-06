@@ -4,7 +4,7 @@ import Post from './Post'
 const PostList = props => {
   const {posts, comments, bloggers} = props
   return (
-    <div className="col-lg-12">
+    <div className="col-md-8">
       <h1 className="my-4">The Creative Nothing</h1>
       {posts.map(post => {
         return (
@@ -27,7 +27,7 @@ const mapState = state => {
     posts: state.posts,
     //user: state.user,
     comments: state.comments,
-    bloggers: state.bloggers
+    bloggers: state.bloggers,
   }
 }
 
