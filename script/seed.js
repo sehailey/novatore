@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Post, Comment, Blog} = require('../server/db/models')
+const {User, Post, Comment, Blog, Task} = require('../server/db/models')
 
 async function seedUsers() {
   const users = await Promise.all([
@@ -141,6 +141,10 @@ async function seedBlogs() {
   await blog.addPosts(posts)
 }
 
+async function seedTasks() {
+  await Promise.all([Task.create({name: 'create blog'})])
+}
+
 // We've separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
 // The `seed` function is concerned only with modifying the database.
@@ -153,6 +157,7 @@ async function runSeed() {
     await seedPosts()
     await seedComments()
     await seedBlogs()
+    await seedTasks()
     console.log(`seeded successfully`)
   } catch (err) {
     console.error(err)

@@ -25,7 +25,7 @@ Blog.belongsToMany(User, {through: 'BlogUser'})
 Blog.hasMany(Post) //puts blogId on Post
 Post.belongsTo(Blog) //puts blogId on Post
 
-//Task.belongsTo(Task, {as: 'parent'})
+Task.belongsTo(Task, {as: 'parent'})
 
 /*
 Sketching out fantasy ideas:
