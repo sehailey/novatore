@@ -5,9 +5,9 @@ import Routes from './routes'
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Navbar />
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-4 bg-dark">
             <SideBar />

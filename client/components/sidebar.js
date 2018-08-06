@@ -1,7 +1,13 @@
 import React from 'react'
 import AllTasks from './tasks/AllTasks'
+import KiwiClient from './irc/KiwiClient'
 
 const SideBar = () => {
-  return <AllTasks />
+  return (
+    <div>
+      <AllTasks />
+      <KiwiClient />
+    </div>
+  )
 }
 export default SideBar

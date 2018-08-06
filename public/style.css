@@ -24,10 +24,11 @@ form div {
 /* The hero image */
 .hero-image {
   /* The image used */
-  background-image: url('purpose.jpg');
+  background-image: url('img/novatore-long.jpg');
+  clear: both;
 
   /* Set a specific height */
-  height: 100%;
+  height: 25%;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -46,8 +47,16 @@ form div {
   color: white;
 }
 
-preview-img {
+.preview-img {
   width: 900px;
   border-radius: 5%;
   object-fit: cover;
+}
+
+.kiwi {
+  border: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 700px;
 }

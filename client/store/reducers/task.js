@@ -29,7 +29,7 @@ export const getAllTasks = () => async dispatch => {
 
 export const createTask = task => async dispatch => {
   try {
-    const {data} = await axios.task('/api/tasks', task)
+    const {data} = await axios.post('/api/tasks', task)
     dispatch(createdTask(data))
   } catch (err) {
     console.error(err)
