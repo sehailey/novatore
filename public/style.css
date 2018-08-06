@@ -25,7 +25,6 @@ form div {
 .hero-image {
   /* The image used */
   background-image: url('img/novatore-long.jpg');
-  clear: both;
 
   /* Set a specific height */
   height: 25%;

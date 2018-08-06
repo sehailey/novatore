@@ -12,12 +12,12 @@ const TaskList = props => {
       <div className="card-body">
         <div className="form-check">
           {tasks.map(task => <Task key={task.id} task={task} />)}
-          <div className="mt-4">
-            <form onSubmit={handleSubmit}>
+          <form className="form-group row" onSubmit={handleSubmit}>
+            <div className="mt-4 col-xs-2">
               <input name="name" type="text" placeholder="enter task" />
               <button type="submit">+</button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

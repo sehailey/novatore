@@ -2,10 +2,12 @@ import React from 'react'
 
 const KiwiClient = props => {
   return (
-    <iframe
-      className="kiwi"
-      src="https://kiwiirc.com/nextclient/#irc://irc.freenode.net/##novatore"
-    />
+    <div>
+      <iframe
+        src="https://kiwiirc.com/client/irc.freenode.net/?nick=Novatore&##novatore"
+        style={{border: '20', width: '100%', height: '450px'}}
+      />
+    </div>
   )
 }
 

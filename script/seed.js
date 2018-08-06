@@ -65,34 +65,14 @@ async function seedPosts() {
 
 async function seedComments() {
   const comments = await Promise.all([
-    //comment1
-    Comment.create({
-      title: 'nice post!',
-      content: 'seriously, have you ever considered making your own blog?',
-      userId: 2,
-      postId: 1,
-    }),
     //comment2
-    Comment.create({
-      title: 'Wow',
-      content: 'WOW.',
-      userId: 4,
-      postId: 1,
-    }),
-    //comment3
     Comment.create({
       title: 'This is so stupid',
       content: 'This is literally the stupidest thing I have ever heard.',
       userId: 3,
       postId: 1,
     }),
-    //comment4
-    Comment.create({
-      title: 'I do not really agree...!',
-      content: 'um...???',
-      userId: 2,
-      postId: 1,
-    }),
+
     //comment5
     Comment.create({
       title: 'what??',
@@ -100,17 +80,33 @@ async function seedComments() {
       userId: 4,
       postId: 1,
     }),
+
+    //comment1
+    Comment.create({
+      title: 'nice post!',
+      content: 'seriously, have you ever considered making your own blog?',
+      userId: 2,
+      postId: 1,
+    }),
+    Comment.create({
+      title: 'Wow',
+      content: 'WOW.',
+      userId: 4,
+      postId: 1,
+    }),
+
     //comment6
     Comment.create({
       title: 'boring.',
       content: '*curmudgeonly things*',
       userId: 5,
       postId: 1,
-    }),
+    }), //comment3
+
     //comment7
     Comment.create({
       title: 'NIIIIICE',
-      content: 'I told you you could do it!',
+      content: 'cool post.',
       userId: 5,
       postId: 2,
     }),
@@ -135,7 +131,7 @@ async function seedBlogs() {
   const c6 = comments[5]
 
   //await c1.setParent([c3, c4])
-  console.log(c3)
+  //console.log(c3)
   //await c2.setParent(c1)
   //await c3.setParent(c1)
   //await c5.addReplies(c3)
