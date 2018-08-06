@@ -25,24 +25,17 @@ const Navbar = ({username, handleClick, isLoggedIn}) => (
         <NavLink className="nav-link" to="/posts">
           Posts
         </NavLink>
-        {isLoggedIn ? (
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <NavLink className="nav-link" to="/home">
-                Home
-              </NavLink>
-            </li>
-          </ul>
-        ) : (
-          <div />
-        )}
       </div>
       {isLoggedIn ? (
         <ul className="navbar-nav navbar-right float-right">
-          <li className="nav-item nav-link">Hi, {username}!</li>
-          <li>
-            <NavLink className="nav-link" to={`/${username}/account`}>
-              Account
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/home">
+              Hi, {username}!
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/irc">
+              IRC
             </NavLink>
           </li>
           <li className="nav-item">

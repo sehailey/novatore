@@ -9,6 +9,7 @@ import {
   AllPosts,
   UserAccount,
   AllTasks,
+  KiwiClient,
 } from './components'
 import {me} from './store'
 
@@ -33,6 +34,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route path="/posts" component={AllPosts} />
+            <Route path="/irc" component={KiwiClient} />
             <Route path="/posts" component={AllTasks} />
             <Route
               path={`/posts/${this.props.username}/account`}

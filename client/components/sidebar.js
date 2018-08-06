@@ -6,7 +6,6 @@ const SideBar = () => {
   return (
     <div>
       <AllTasks />
-      <KiwiClient />
     </div>
   )
 }
