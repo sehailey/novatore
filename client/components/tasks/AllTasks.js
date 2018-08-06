@@ -17,7 +17,7 @@ class AllTasks extends Component {
 
     return (
       <div>
-        {this.user &&
+        {this.props.user &&
           this.props.tasks &&
           this.props.tasks.length && (
             <div className="container">
