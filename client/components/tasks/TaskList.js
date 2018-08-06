@@ -1,25 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// /import Task from './Task'
+import Task from './Task'
 const TaskList = props => {
-  const {tasks, comments, bloggers} = props
-  console.log(tasks)
+  const {user, tasks, comments, bloggers} = props
   return (
-    <div className="col-sm bg-dark">
-      <h1 className="my-4">Tasks</h1>
+    <div className="container rounded bg-light">
+      <h5 className="my-4 text-center">{user.username}'s tasks</h5>
+      <div className="form-check">
+        {tasks.map(task => <Task key={task.id} task={task} />)}
+      </div>
 
-      {/* {tasks.map(post => {
-        return (
-          <Post
-            key={post.id}
-            blogger={bloggers.find(blogger => blogger.id === post.userId)}
-            post={post}
-            comments={comments.filter(
-              comment => comment.postId === post.id && comment.parentId === null
-            )}
-          />
-        )
-      })} */}
+      <hr />
     </div>
   )
 }
@@ -27,7 +18,7 @@ const TaskList = props => {
 const mapState = state => {
   return {
     tasks: state.tasks,
-    //user: state.user,
+    user: state.user,
     //comments: state.comments,
     bloggers: state.bloggers,
   }

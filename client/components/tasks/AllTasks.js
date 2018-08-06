@@ -10,19 +10,21 @@ import {getAllTasks} from '../../store'
 
 class AllTasks extends Component {
   componentDidMount() {
-    //this.props.fetchPosts()
+    this.props.fetchTasks()
   }
   render() {
     const {user, tasks} = this.props
 
     return (
-      <div className="container">hello!</div>
-      /*this.props.tasks &&
-      this.props.tasks.length && (
-        <div className="container">
-          <TaskList user={user} tasks={tasks} />
+      <div className="container">
+        <h1>All Tasks</h1>
+        {this.props.tasks &&
+          this.props.tasks.length && (
+            <div className="container">
+              <TaskList user={user} tasks={tasks} />
+            </div>
+          )}
       </div>
-      )*/
     )
   }
 }
