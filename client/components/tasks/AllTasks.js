@@ -16,11 +16,12 @@ class AllTasks extends Component {
     const {user, tasks} = this.props
 
     return (
-      <div className="container">
-        <h1>All Tasks</h1>
-        {this.props.tasks &&
+      <div>
+        {this.user &&
+          this.props.tasks &&
           this.props.tasks.length && (
             <div className="container">
+              <h1>All Tasks</h1>
               <TaskList user={user} tasks={tasks} />
             </div>
           )}

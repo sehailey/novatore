@@ -9,7 +9,9 @@ const App = () => {
       <Navbar />
       <div className="container">
         <div className="row">
-          <SideBar />
+          <div className="col-md-4 bg-dark">
+            <SideBar />
+          </div>
           <Routes />
         </div>
       </div>

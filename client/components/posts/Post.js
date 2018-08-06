@@ -18,13 +18,13 @@ const Post = props => {
           </p>
           <hr />
           {/* <!-- Date/Time --> */}
-          <p>Posted on January 1, 2018 at 12:00 PM</p>
+          <p>Posted on August 3, 2018 at 4:32 PM</p>
           <hr />
           {/* <!-- Preview Image --> */}
           {post.imageUrl ? (
             <img
-              className="img-fluid rounded"
-              src="http://placehold.it/900x300"
+              className="img-fluid rounded preview-img"
+              src={post.imageUrl}
               alt=""
             />
           ) : (

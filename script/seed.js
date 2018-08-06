@@ -40,18 +40,21 @@ async function seedPosts() {
     Post.create({
       title: 'Iconoclasts, forward!',
       userId: 1,
+      imageUrl: 'img/purpose900x300.jpg',
       content:
         'All societies tremble when the scornful aristocracy of Vagabonds, Unique ones, Unapproachable ones, rulers over the ideal, and Conquerors of Nothing advance without inhibitions. So, come on, Iconoclasts, forward!',
     }),
     Post.create({
-      title: 'on prison abolition',
+      title: 'enthusiastic and dionysian pessimism',
       userId: 1,
+      imageUrl: 'img/bg-signup900x300.jpg',
       content:
         'Mine is an enthusiastic and dionysian pessimism, like a flame that sets my vital exuberance ablaze, that mocks at any theoretical, scientific or moral prison.',
     }),
     Post.create({
       title: 'Rebellion!',
       userId: 1,
+      imageUrl: 'img/demo-image-02.jpg',
       content:
         'We absolutely feel we are beyond all isms and theories. We will suppress the works of all nitwits and all scribblers who, by affiliating with the schools of the avant-garde, try to impose themselves on more original minds. We will absolutely refuse all works of purely technical virtuosity unless they serve to express an aesthetic rebellion.',
     }),

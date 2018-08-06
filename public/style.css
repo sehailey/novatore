@@ -1,16 +1,12 @@
 body,
 html {
   height: 100%;
-  padding: 0;
 }
 
 a {
   text-decoration: none;
 }
 
-.container {
-  margin: 0px 0px;
-}
 label {
   display: block;
 }
@@ -48,4 +44,10 @@ form div {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+preview-img {
+  width: 900px;
+  border-radius: 5%;
+  object-fit: cover;
 }
