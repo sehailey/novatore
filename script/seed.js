@@ -108,12 +108,12 @@ async function seedBlogs() {
   const c5 = comments[4]
   const c6 = comments[5]
 
-  //await c1.setParent([c3, c4])
-  //console.log(c3)
-  //await c2.setParent(c1)
-  //await c3.setParent(c1)
-  //await c5.addReplies(c3)
-  //c3.setParent(c5)
+  // await c1.setParent([c3, c4])
+  // console.log(c3)
+  // await c2.setParent(c1)
+  // await c3.setParent(c1)
+  // await c5.addReplies(c3)
+  // c3.setParent(c5)
 
   await blog.addPosts(posts)
 }
