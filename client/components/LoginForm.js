@@ -13,7 +13,7 @@ const AuthForm = props => {
     <div className="form-group col-md-8 my-4">
       <div className="card">
         <div className="card-header">
-          <img className="img-fluid " src="bg-masthead.jpg" />
+          <img className="img-fluid " src="img/bg-masthead.jpg" />
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit} name={name}>
