@@ -40,6 +40,7 @@ const mapDispatch = dispatch => {
       console.log(evt.target.name.value)
       const name = evt.target.name.value
       dispatch(createTask({name}))
+      evt.target.name.value = ''
     },
   }
 }
