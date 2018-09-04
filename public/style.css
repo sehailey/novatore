@@ -12,38 +12,12 @@ label {
 }
 
 nav a {
-  display: inline-block;
   margin: 1em;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-/* The hero image */
-.hero-image {
-  /* The image used */
-  background-image: url('img/novatore-long.jpg');
-
-  /* Set a specific height */
-  height: 25%;
-
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-/* Place text in the middle of the image */
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
 }
 
 .preview-img {
@@ -54,4 +28,5 @@ form div {
 
 .kiwi {
   width: 100%;
+  padding: 0;
 }

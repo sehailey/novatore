@@ -65,22 +65,6 @@ async function seedPosts() {
 
 async function seedComments() {
   const comments = await Promise.all([
-    //comment2
-    Comment.create({
-      title: 'This is so stupid',
-      content: 'This is literally the stupidest thing I have ever heard.',
-      userId: 3,
-      postId: 1,
-    }),
-
-    //comment5
-    Comment.create({
-      title: 'what??',
-      content: 'Why do you have to be so mean?',
-      userId: 4,
-      postId: 1,
-    }),
-
     //comment1
     Comment.create({
       title: 'nice post!',
@@ -88,21 +72,15 @@ async function seedComments() {
       userId: 2,
       postId: 1,
     }),
-    Comment.create({
-      title: 'Wow',
-      content: 'WOW.',
-      userId: 4,
-      postId: 1,
-    }),
 
     //comment6
+    //comment3
     Comment.create({
-      title: 'boring.',
-      content: '*curmudgeonly things*',
-      userId: 5,
+      title: 'This is so stupid',
+      content: 'This is literally the stupidest thing I have ever heard.',
+      userId: 3,
       postId: 1,
-    }), //comment3
-
+    }),
     //comment7
     Comment.create({
       title: 'NIIIIICE',

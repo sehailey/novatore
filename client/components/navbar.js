@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({username, handleClick, isLoggedIn}) => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+  <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark navbar-fixed-top">
     <div className="container">
       <NavLink className="navbar-brand js-scroll-trigger" to="/">
         Novatore

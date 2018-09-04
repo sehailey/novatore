@@ -4,7 +4,7 @@ import KiwiClient from './irc/KiwiClient'
 
 const SideBar = () => {
   return (
-    <div>
+    <div className="sidenav">
       <AllTasks />
     </div>
   )
