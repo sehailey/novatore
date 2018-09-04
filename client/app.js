@@ -5,10 +5,16 @@ import Routes from './routes'
 
 const App = () => {
   return (
-    <div>
+    <div className="container-fluid">
       <Navbar />
-      <SideBar />
-      <Routes />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-4 bg-dark">
+            <SideBar />
+          </div>
+          <Routes />
+        </div>
+      </div>
       <Footer />
     </div>
   )

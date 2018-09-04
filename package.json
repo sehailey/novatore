@@ -1,7 +1,7 @@
 {
-  "name": "stackathon",
+  "name": "novatore",
   "version": "1.0.0",
-  "description": "stackathon-beta",
+  "description": "A blog/task CRUD app with upcoming IRC / Matrix integration",
   "engines": {
     "node": ">= 7.0.0"
   },

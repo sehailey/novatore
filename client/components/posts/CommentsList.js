@@ -6,14 +6,16 @@ const CommentsList = props => {
   const {comments, bloggers} = props
   return (
     <ul>
-      {comments.map(comment => (
-        <Comment
-          key={comment.id}
-          blogger={bloggers.find(blogger => blogger.id === comment.userId)}
-          comment={comments.find(cmt => cmt.id === comment.id)}
-          replies={comments.filter(reply => reply.parentId === comment.id)}
-        />
-      ))}
+      {comments
+        .sort(({id: previousID}, {id: currentID}) => previousID - currentID)
+        .map(comment => (
+          <Comment
+            key={comment.id}
+            blogger={bloggers.find(blogger => blogger.id === comment.userId)}
+            comment={comments.find(cmt => cmt.id === comment.id)}
+            replies={comments.filter(reply => reply.parentId === comment.id)}
+          />
+        ))}
     </ul>
   )
 }

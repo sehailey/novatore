@@ -4,20 +4,19 @@ import Post from './Post'
 const PostList = props => {
   const {posts, comments, bloggers} = props
   return (
-    <div className="col-lg-12">
-      <h1 className="my-4">The Creative Nothing</h1>
-      {posts.map(post => {
-        return (
-          <Post
-            key={post.id}
-            blogger={bloggers.find(blogger => blogger.id === post.userId)}
-            post={post}
-            comments={comments.filter(
-              comment => comment.postId === post.id && comment.parentId === null
-            )}
-          />
-        )
-      })}
+    <div className="col-md-8 mt-4">
+      <div className="hero-image" />
+      <img className="img-fluid" src="img/home.jpg" />
+      {posts.map(post => (
+        <Post
+          key={post.id}
+          blogger={bloggers.find(blogger => blogger.id === post.userId)}
+          post={post}
+          comments={comments.filter(
+            comment => comment.postId === post.id && comment.parentId === null
+          )}
+        />
+      ))}
     </div>
   )
 }
@@ -27,7 +26,7 @@ const mapState = state => {
     posts: state.posts,
     //user: state.user,
     comments: state.comments,
-    bloggers: state.bloggers
+    bloggers: state.bloggers,
   }
 }
 

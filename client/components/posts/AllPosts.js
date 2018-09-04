@@ -11,14 +11,7 @@ class Posts extends Component {
     this.props.fetchBloggers()
   }
   render() {
-    return (
-      this.props.posts &&
-      this.props.posts.length && (
-        <div className="container">
-          <PostList />
-        </div>
-      )
-    )
+    return this.props.posts && this.props.posts.length && <PostList />
   }
 }
 

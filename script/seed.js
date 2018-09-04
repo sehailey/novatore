@@ -40,18 +40,21 @@ async function seedPosts() {
     Post.create({
       title: 'Iconoclasts, forward!',
       userId: 1,
+      imageUrl: 'img/purpose900x300.jpg',
       content:
         'All societies tremble when the scornful aristocracy of Vagabonds, Unique ones, Unapproachable ones, rulers over the ideal, and Conquerors of Nothing advance without inhibitions. So, come on, Iconoclasts, forward!',
     }),
     Post.create({
-      title: 'on prison abolition',
+      title: 'enthusiastic and dionysian pessimism',
       userId: 1,
+      imageUrl: 'img/bg-signup900x300.jpg',
       content:
         'Mine is an enthusiastic and dionysian pessimism, like a flame that sets my vital exuberance ablaze, that mocks at any theoretical, scientific or moral prison.',
     }),
     Post.create({
       title: 'Rebellion!',
       userId: 1,
+      imageUrl: 'img/demo-image-02.jpg',
       content:
         'We absolutely feel we are beyond all isms and theories. We will suppress the works of all nitwits and all scribblers who, by affiliating with the schools of the avant-garde, try to impose themselves on more original minds. We will absolutely refuse all works of purely technical virtuosity unless they serve to express an aesthetic rebellion.',
     }),
@@ -69,13 +72,8 @@ async function seedComments() {
       userId: 2,
       postId: 1,
     }),
-    //comment2
-    Comment.create({
-      title: 'Wow',
-      content: 'WOW.',
-      userId: 4,
-      postId: 1,
-    }),
+
+    //comment6
     //comment3
     Comment.create({
       title: 'This is so stupid',
@@ -83,31 +81,10 @@ async function seedComments() {
       userId: 3,
       postId: 1,
     }),
-    //comment4
-    Comment.create({
-      title: 'I do not really agree...!',
-      content: 'um...???',
-      userId: 2,
-      postId: 1,
-    }),
-    //comment5
-    Comment.create({
-      title: 'what??',
-      content: 'Why do you have to be so mean?',
-      userId: 4,
-      postId: 1,
-    }),
-    //comment6
-    Comment.create({
-      title: 'boring.',
-      content: '*curmudgeonly things*',
-      userId: 5,
-      postId: 1,
-    }),
     //comment7
     Comment.create({
       title: 'NIIIIICE',
-      content: 'I told you you could do it!',
+      content: 'cool post.',
       userId: 5,
       postId: 2,
     }),
@@ -132,7 +109,7 @@ async function seedBlogs() {
   const c6 = comments[5]
 
   //await c1.setParent([c3, c4])
-  console.log(c3)
+  //console.log(c3)
   //await c2.setParent(c1)
   //await c3.setParent(c1)
   //await c5.addReplies(c3)
