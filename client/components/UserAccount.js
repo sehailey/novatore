@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 
-const userAccount = {
+const initialUserAccount = {
   username: '',
   firstName: '',
   lastName: '',
@@ -14,11 +14,7 @@ const userAccount = {
 class UserAccount extends Component {
   constructor() {
     super()
-    this.state = userAccount
-  }
-
-  componentDidMount() {
-    this.setState(this.props.user)
+    this.state = initialUserAccount
   }
 
   render() {
