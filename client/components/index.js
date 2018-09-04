@@ -4,6 +4,7 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
+export {default as Main} from './main'
 export {default as SideBar} from './sidebar'
 export {default as Footer} from './footer'
 export {default as UserHome} from './user-home'
@@ -14,3 +15,4 @@ export {default as Post} from './posts/Post'
 export {default as AllTasks} from './tasks/AllTasks'
 export {default as TaskList} from './tasks/TaskList'
 export {default as Task} from './tasks/Task'
+export {default as KiwiClient} from './irc/KiwiClient'

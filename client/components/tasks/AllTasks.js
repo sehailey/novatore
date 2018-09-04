@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import TaskList from './TaskList'
+import CompletedTaskList from './CompletedTaskList'
 import {getAllTasks} from '../../store'
 
 /**
@@ -10,19 +11,24 @@ import {getAllTasks} from '../../store'
 
 class AllTasks extends Component {
   componentDidMount() {
-    //this.props.fetchPosts()
+    this.props.fetchTasks()
   }
   render() {
     const {user, tasks} = this.props
+    const completeTasks = tasks.filter(task => !!task.complete)
+    const incompleteTasks = tasks.filter(task => !task.complete)
 
     return (
-      <div className="col-sm bg-dark">hello!</div>
-      /*this.props.tasks &&
-      this.props.tasks.length && (
-        <div className="container">
-          <TaskList user={user} tasks={tasks} />
+      <div>
+        {this.props.user.username &&
+          this.props.tasks &&
+          this.props.tasks.length && (
+            <div className="container">
+              <TaskList user={user} tasks={incompleteTasks} />
+              <CompletedTaskList user={user} tasks={completeTasks} />
+            </div>
+          )}
       </div>
-      )*/
     )
   }
 }

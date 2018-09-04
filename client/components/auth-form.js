@@ -10,26 +10,38 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
+    <div className="form-group col-md-8 my-4">
+      <div className="card">
+        <div className="card-header">
+          <img className="img-fluid " src="bg-masthead.jpg" />
         </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
+        <div className="card-body">
+          <form onSubmit={handleSubmit} name={name}>
+            <div className="row">
+              <div className="col">
+                <label htmlFor="email">Email</label>
+                <input name="email" type="text" className="form-control" />
+              </div>
+
+              <div className="col">
+                <label htmlFor="password">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  className="form-control"
+                />
+              </div>
+            </div>
+
+            <button className="btn btn-primary mt-2" type="submit">
+              {displayName}
+            </button>
+
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
+          <a href="/auth/google">{displayName} with Google</a>
         </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      </div>
     </div>
   )
 }
@@ -45,7 +57,7 @@ const mapLogin = state => {
   return {
     name: 'login',
     displayName: 'Login',
-    error: state.user.error
+    error: state.user.error,
   }
 }
 
@@ -53,7 +65,7 @@ const mapSignup = state => {
   return {
     name: 'signup',
     displayName: 'Sign Up',
-    error: state.user.error
+    error: state.user.error,
   }
 }
 
@@ -65,7 +77,7 @@ const mapDispatch = dispatch => {
       const email = evt.target.email.value
       const password = evt.target.password.value
       dispatch(auth(email, password, formName))
-    }
+    },
   }
 }
 
@@ -79,5 +91,5 @@ AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  error: PropTypes.object
+  error: PropTypes.object,
 }
