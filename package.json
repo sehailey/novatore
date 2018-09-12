@@ -42,7 +42,6 @@
     "express": "^4.14.1",
     "express-session": "^1.15.1",
     "fs": "0.0.1-security",
-    "gh-pages": "^1.2.0",
     "history": "^4.6.3",
     "irc-upd": "^0.10.0",
     "net": "^1.0.2",
